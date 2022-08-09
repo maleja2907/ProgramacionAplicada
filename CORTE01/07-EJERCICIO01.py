@@ -9,32 +9,24 @@ se les darán multiples funciones (por ahora no importa qué son), así como la 
  deben completar las tareas marcadas como TODO
 '''
 ##
-def f_suma (a,b):
-    '''
-    Esta funcion debe asignar el varor de la suma entre a y b a la variable a
-    :param a: número
-    :param b: número
-    :return: suma entre a y b
-    '''
-    #TODO: En este espacio deben realizar las modificaciones
-
-    return a
+def f_suma (a,b):# tenemos la iniciacion de la función con el nombre "f_suma" y que contará con los parametros iniciales "a,b "
+    a+=b #se indica con el operador "+" que se desea realizar la adicion de "b" a "a"
+    return a # se retorna el valor actualizado de "a"
+  
+  
+  
+  
+  
 # Se genera un error si no funciona de manera adecuada
 assert f_suma(3,5) == 8
 assert f_suma(3,-5) == -2
 assert f_suma(-7,-5) == -12
 ## modulo
 
-def f_mod(a,b):
-    '''
-    asigna el modulo entre b y a
-    :param a: primer numero
-    :param b: segundo número
-    :return: retorna el módulo entre b y a
-    '''
-    #TODO: En este espacio deben realizar las modificaciones
+def f_mod(a,b):# tenemos la iniciacion de la función con el nombre "f_mod" y que contará con los parámetros iniciales "a,b "
+    c=b%a #se indica con el operador "%" que se desea conocer el residuo de la divicion entre "b" y "a" siendo "a" el divisor y "b" el divisor 
 
-    return b
+    return c
 
 # Se genera un error si no funciona de manera adecuada
 assert f_mod(3,5) == 2
