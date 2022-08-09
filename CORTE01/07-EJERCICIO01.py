@@ -35,14 +35,8 @@ assert f_mod(4,10) == 2
 
 ## Cadenas de caracteres
 def f_str_01 (str_01):
-    '''
-    Realice una función que separe por espacio una cadena de caracteres convierte en mayusculas la segunda palabra
-    y retorna la cadena unida sin espacios.
-    NOTA: deben asignar la nueva cadena a la cadena a la variable str_02
-    :param str_01:
-    :return: str_02
-    '''
-    # TODO: En este espacio deben realizar las modificaciones
+    str_02 = print(str_01.split())
+    print(str_02.upper())
     return str_02
 
 assert f_str_01('Hola Mundo') == 'HolaMUNDO'
