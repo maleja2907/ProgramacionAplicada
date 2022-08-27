@@ -26,33 +26,40 @@ print(str_archivo.read())#poner el archivo en modo lectura
 #TODO: escriba un programa que le permita leer e imprimir el archivo generado anteriormente
 
 ## 3. números binario (1.5)
-def f_calBin (s_num):
-    s_residuo=0
-    list=[]
-    str_num=str(s_num)
-    print(str_num.split(sep="."))
-    s1_num=int(str_num[0])
-    print(str_num[2])
-    s2_num=int(str_num[2])
+def f_calBin (s_num): #inicio de la funcion con el parametro de inicio que sera el numero a calcular
+    s_num=s_num+0.0 # convercion del numero en decimal
+    print(s_num) #se imprime el número
+    s_residuo=0 #se inicia la variable residuo en 0
+    lista=[]
+    s_bin = []
+    #se inician 2 listas vacias una de ellas contara los reciduos de la parte entera del numero
+    str_num=str(s_num)#se vuelve en una cadena de caracteres el numero
+    split_num=str_num.split(sep=".")#se separa el numero en la parte entera y la parte decimal
+    s1_num=int(split_num[0]) #se guarda la parte entera en una variable
+    s2_num=int(split_num[1]) #se guarda la parte decimal en otra variable
 
-    while s1_num!=0:
-        s_residuo =s1_num % 2
-        s1_num=s1_num//2
-        list.append(s_residuo)
-    k= len(list) - 1
-    s_bin=[]
-    while (k>= 0):
-        s_bin.append(list[k])
-        k = k - 1
-    s2_num=s2_num*10^(len(str_num[2]))
-    for i in range(5):
-        s2_num=s2_num*2
-        k=str(s2_num)
-        print(k[1])
-        s_bin.append(int(k[0]))
-        s2_num=int(k[2])
-    return s_bin
-print(f_calBin(4.1))
+    while s1_num!=0: #inicia el buble para la parte entera   se repetira mientras la parte entera sea diferente de 0
+        s_residuo=s1_num % 2#el residuo (que sera el valor a agregar en la lista de residuos para ser parte posteriomente del numero binario respuesta)sera igual al residuo de la divicion del numero dividido 2
+        s1_num=s1_num//2#la variabel que almacena el numero etero a seguir evaluendo sera igual a la divicion del numero en 2
+        lista.append(s_residuo)#se agrega a la lista de residuos el residuo
+    k = len(lista) - 1#la variable k almacenara el numero equivalente a la cantidad de elementos que halla en la lista de residuos
+    while (k >= 0):#se inicia un bucle para invertir la lista de residuos ya que eso sera igual al numero binario correspondiente a la parte entera del nuemero a evaluar
+        s_bin.append(lista[k])#se agrega a la lista del numero binario el ultimo valor de la lista de residuos
+        k = k - 1 #a la variable que recorre la lista de resiguos de le resta uno (esto con el fin de ir recorriendo la lista al revez )
+    s_bin.append(".")#al terminar el bucle se añade un punto a la lista del numero binario para iniciar el procedo de convercion del numero en la parte decimal a binario
+
+    for i in range(4):#se inicia el bucle que por comodidad de ejecucion se realizara 4 veces maximo ya que el decimal puede ser una parte infinita de identificacion
+        s2_num=s2_num*(10**(-(len(str(s2_num))))) #se confierte la parte decimal que habia quedado como entera en su origenal representacion deccimal
+        s2_num=s2_num*2 # el numero se multiplica por 2
+        s2_num=str(s2_num) # se convierte en una cadena de caracteres el resultado
+        splits2_num=s2_num.split(sep=".") #se divide en la parte entera y la parte decimal
+        s_bin.append(int(splits2_num[0]))# la parte entera se añade a la lista de el numero binario
+        s2_num=int(splits2_num[1]) #se almacena la parte decimal para volver a ejecutar el proceso
+        if s2_num==0:#si la parte decimal es 0
+            break#se rompe el bucle
+    s_bin="".join([str(_) for _ in s_bin])#se combierte la lista en una cadena de carateres
+    return (f'el numero en decimal es: {s_bin}') #se imprime el valor final 
+print(f_calBin(45))
     '''
     Calculadora que permite encontrar la representación en binario de un número entero o decimal que ingresa por parametro
     :param s_num: número que se desea convertir a binario int o float
