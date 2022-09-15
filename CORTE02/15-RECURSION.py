@@ -20,8 +20,42 @@ def f_contar(s_num): # se inicia la función, esta debe tener un parametro que s
 print(f_contar(1))
 
 # TODO: modificar esta función para que imprima todos los valores de manera ordenada
+
+def f_contar(s_num): # se inicia la función, esta debe tener un parametro que sirva como memoria del sistema
+    if s_num < 10: # si el número actual es menor que 10, aumentar en uno y volver a correr la función
+        s_num+=1 # al numero que estamos evaluando se le suma 1 lo que generara que cuente hacia adelante 
+        print(s_num) #se imprime el valor anterior 
+        return f_contar(s_num) # al correr nuevamente la función, ingresa con s_num + 1 como parametro por lo que cada vez incrementa
+    else:
+        return s_num # finalmetne cuando se cumple la condición se retorna el valor final
+
+print(f_contar(12))
+
+
 # TODO: modificar la función para que reciba dos parametros, el número inicial y el objetivo
+
+def f_contar(s_num,s_num_final): # se inicia la función, esta debe tener un parametro que sirva como memoria del sistema
+    print(s_num)  # se imprime el numero
+    if s_num < s_num_final: # si el número actual es menor que el numero final al que se desea llegar , aumentar en uno y volver a correr la función
+        s_num+=1 #se le suma a 1 al numero analizado para generar el conteo cuand se retome la funcion
+        return f_contar(s_num,s_num_final) # al correr nuevamente la función, ingresa con s_num + 1 como parametro por lo que cada vez incrementa
+    else:
+        return (f"el valor final es: {s_num}")# finalmetne cuando se cumple la condición se retorna el valor final y se indica que es el ultimo valor del conteo
+
+print(f_contar(1,13))
+
+
 # TODO: modificar la función para que reciba 3 parametros el número inicial, el objetivo y los pasos entre números
+
+def f_contar(s_num,s_num_final,s_paso): # se inicia la función, esta debe tener un parametro inicial, el objetivo final y el intervalo en el que se contara 
+    print(s_num)  # se imprime el numero
+    if s_num < s_num_final: # si el número actual es menor que el numero final al que se desea llegar , aumentar en uno y volver a correr la función
+        s_num+=s_paso #se le suma s_paso que sera el valor intervalo entre numeros al numero analizado para generar el conteo cuand se retome la funcion
+        return f_contar(s_num,s_num_final,s_paso) # al correr nuevamente la función, ingresa con s_num + el valor intervalo como parametro por lo que cada vez incrementa
+    else:
+        return (f"el valor final es: {s_num}")# finalmetne cuando se cumple la condición se retorna el valor final y se indica que es el ultimo valor del conteo
+
+print(f_contar(1,13,2))
 
 ## Torre de Hanoi
 '''
@@ -30,6 +64,10 @@ https://www.youtube.com/watch?v=vrXue8Lq1Ow&ab_channel=EdukativeS.L.-Rob%C3%B3ti
 https://www.geogebra.org/m/NqyWJVra
 '''
 # TODO: Implementar una solución recursiva a la torre de hanoi
+
+# mi solucion 
+
+
 
 ## Solución a la torre de Hanoi
 # algortmo tomado de: https://www.delftstack.com/es/howto/python/tower-of-hanoi-python/
