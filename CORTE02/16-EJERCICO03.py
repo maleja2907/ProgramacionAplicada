@@ -1,4 +1,4 @@
-## 16-EJERCICO 03 RECURSIÓN
+78## 16-EJERCICO 03 RECURSIÓN
 '''
 Los ejercicios son de caracter obligatorio, sin embargo no se les asignará una calificación, el objetivo de estos
 es que ustedes practiquen y mejoren sus habilidades.
@@ -31,7 +31,30 @@ print(f_contarconejos(13)) #para un año el resultado sera *resultado=pares de c
 #       crear una caja donde se almacena el dinero y se lleva registro de los movimientos
 #       crear una lista de empleados que tienen asociado un nombre, cargo, salario, vehiculo y documento
 #       Crear una lista de clientes que tienen asociado un nombre, vehiculo y documento
-
+class vehiculo:
+    d_delivery = ''
+    cost = ''
+    model = ''
+    year = ''
+    owner = ''
+    def print_information(self,d_delivery, cost, model, year, owner):
+        print
+        self.d_delivery
+        print
+        self.cost
+        print
+        self.model
+        print
+        self.year
+        print
+        self.owner
+mustang = vehiculo()
+mustang.d_delivery = '13/09/2022'
+mustang.cost = '200000000'
+mustang.model = 'match 1'
+mustang.year = '1969'
+mustang.owner = 'Samuel'
+mustang.print_information(mustang.d_delivery,mustang.cost,mustang.model,mustang.year,mustang.owner) 
 # TODO: 2 Ejecute sobre so codigo principal:
 #       ingresar un vehiculo nuevo al taller (validar cupo)
 #       Sacar un vehiculo del taller (se debe generar un pago por parte del cliente)
@@ -41,4 +64,3 @@ print(f_contarconejos(13)) #para un año el resultado sera *resultado=pares de c
 #       Encontrar un vehiculo a partir de su dueño y determinar si está en el taller
 # TODO: 3 Todas las funciones que implemente deben estar en un script distinto al principal y donde se definen sus clases
 #       NOTA - (la UNICA exepción son las funciones que definen dentro de sus clases.)
-
