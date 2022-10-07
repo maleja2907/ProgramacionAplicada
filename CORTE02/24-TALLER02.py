@@ -57,104 +57,103 @@ la siguiente sección se debe realizar en un archivo distinto llamado TALLER02-2
 #TODO: validar la converción a diccionario (0.2)
 
 
+def busqueda_secuencial(n, lista):
+    for i in range(0,len(lista)):
+        if lista[i] == (n):
+            return i
 
-class persona():
-    def init(self, Hermanos, Padres, hijos, conyugues):
-        self.Hermanos = []  # hermanos de la persona (n datos)
-        self.Padres = []  # padres de la persona (2 datos o menos)
-        self.hijos = []  # hijos
-        self.conyugues = ""  #
 
-    def add_siblings(self, Hermano):
-        per = persona(Hermano, self.Padres)
-        # TODO: verificar y asegurar que los hermanos tengan los mismos padres (0.5)
-        self.Hermanos.append(per)
+class persona ():
+    def __init__(self):
+        self.Hermanos = [] # hermanos de la persona (n datos)
+        self.Padres = []# padres de la persona (2 datos o menos)
+        self.edad=[]
 
-    def add_parents(self, Parent):
+    def add_parents(self,padres):
         if len(self.Padres) < 2:
-            self.Padres.append(persona(Parent))
+            self.Padres.append(padres)
         else:
             print('No se puede agregar')
 
-    def add_childrens(self, Hijo):
-        per = persona(Hijo)
-        self.hijo.append(per)
 
-    def add_conyugues(self, conyugue):
-        per = persona(conyugue)
-        self.conyugue = conyugue
+    def add_siblings(self,hermano):
+        self.Hermanos.append(hermano)
+        hermano.add_parents(self.Padres[0])
+        hermano.add_parents(self.Padres[1])
 
-    def busqper(self, lista, nombre):
-        i = 0
-        while i < len(lista):
-            if nombre == self.lista[i]:
-                return nombre
-            break
+
+
+    def search (self,nombre):
+        if self ==nombre:
+            return self
+        else:
+            A=busqueda_secuencial(nombre,self.Hermanos)
+            if A!= None:
+                return A
             else:
-            i += 1
+                return self.Padres[0].search(nombre)
+
+    def tree2lista(self):
+        lista1=[]
+        t=self
+        t.Hermanos=[]
+        t.Padres=[]
+        lista1.append(t)
+        lista1.append(self.Hermanos)
+        lista1p0 = self.t.tree2lista(self.Padres[0])
+        lista1p1 = self.t.tree2lista(self.Padres[1])
+        lista1.append(lista1p0)
+        lista1.append(lista1p1)
+        return lista1
+    def impresiones(self,Hermanos,Padres):
+        print
+        self.hermanos
+        print
+        self.Padres
 
 
-def search(self, nombre):
-    i = 0
-    while i < len(self.Hermanos):
-        if nombre == self.Hermanos[i]:
-            print(f"{nombre} es hermano")
-            break
-        else:
-            i += 1
-    j = 0
-    while j < len(self.Padres):
-        if nombre == self.Padres[i]:
-            print(f"{nombre} es un padre")
-            break
-        else:
-            j += 1
+    def tree2dict (self):
+
+        '''
+        convierte el arbol actual en un diccionario usando los nombres como llaves y los padres y hermanos como llaves
+        :return: retorna un diccionario
+        '''
+        # TODO: Implementar una función que permita convertir el arbol actual en un dicci(1.0)onario
+
+        return self
 
 
-'''
-    se busca a cualquier persona en el arbol, se asume que el usuario puede colocar cualquier combinación de
-    mayusculas y minusculas
-    :param nombre: nombre de la persona a buscar
-    :return: retorna el objeto encontrado así como la altura a la que se encuentra el elemento
-    '''
+    def encript(self,nombre):
+        self.nombrearch=nombre
+        zn=self.nombrearch+'.txt'
+        print(zn)
+        with open(zn,'a') as file:
+            file.write('\n'+self.nombre)
+            file.write('\n'+self.PPadres)
+            file.write('\n'+self.HHermanos)
+            #SE HIZO LA COMPROBACION EN 2 PLATAFORMAS Y ESTA SECCION SI FUNCIONA
+        # TODO: Implementar una función que permita converti el arbol en un archivo encriptado (1.0)
+    def decrip(self,nombre):
+        self.nombrearch=nombre
+        zn=self.nombrearch+'.txt'
+        archivo=open(zn,'rt',encoding='utf-8')
+        print(archivo.read())
+        return('Arbol creado')
 
+gustav=persona()
+jaime=persona()
+luisa=persona()
+pablo=persona()
+pedro=persona()
+jose=persona()
+gustav.add_parents(jaime)
+gustav.add_parents(luisa)
+juan=persona()
+gustav.add_siblings(juan)
+gustav.add_siblings(pablo)
+gustav.add_siblings(pedro)
+gustav.add_siblings(jose)
 
-# TODO: Implementar un método de busqueda para encontrar a cualquier persona en el arbol (0.5)
+gustav.search(juan)
+print(gustav.Hermanos,gustav.Padres)
 
-def tree2dict(self):
-    '''
-    convierte el arbol actual en un diccionario usando los nombres como llaves y los padres y hermanos como llaves
-    :return: retorna un diccionario
-    '''
-    # TODO: Implementar una función que permita convertir el arbol actual en un diccionario (1.0)
-
-
-def encript(self, nombre):
-    '''
-    crea un archivo encriptado, con la información correspondiente al arbol
-    :param nombre: nombre del archivo que se desea crear
-    :return: null
-    '''
-    # TODO: Implementar una función que permita converti el arbol en un archivo encriptado (1.0)
-
-
-def decrip(self, nombre):
-    '''
-    lee un archivo de texto, lo decifra y convierte el resultado en el arbol correspondiente
-    :param nombre: Nombre del archivo que se desea leer
-    :return: arbol creado
-    '''
-    # TODO: Im plementar una función que permita convertir un archivo encriptado en un arbol (1.0
-
-
-gustav = persona()
-gustav.add_siblings("juan")
-gustav.add_siblings("pablo")
-gustav.add_siblings("pedro")
-gustav.add_siblings("jose")
-gustav.add_parents("jaime")
-gustav.add_parents("luisa")
-juan = persona()
-gustav.search("juan")
-print(gustav.Hermanos, gustav.Padres)
-# gustav.search("luisa")
